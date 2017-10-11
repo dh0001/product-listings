@@ -12,7 +12,7 @@ namespace store2.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectPermanent ("/Product");
         }
 
         public IActionResult About()
