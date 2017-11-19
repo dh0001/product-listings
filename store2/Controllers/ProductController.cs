@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using store2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace store2.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly ProductContext _context;
@@ -19,6 +21,7 @@ namespace store2.Controllers
         }
 
         // GET: ProductModels
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.ProductModel.ToListAsync());
