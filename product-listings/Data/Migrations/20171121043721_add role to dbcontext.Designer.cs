@@ -10,7 +10,7 @@ using System;
 
 namespace store.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(IdentityContext))]
     [Migration("20171121043721_add role to dbcontext")]
     partial class addroletodbcontext
     {

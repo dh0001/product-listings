@@ -8,9 +8,9 @@ using store.Models;
 
 namespace store.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class IdentityContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
         }

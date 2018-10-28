@@ -13,7 +13,7 @@ namespace store.Models
         public string Description { get; set; }
 
         public ICollection<Image> Images { set; get; }
-        public ICollection<Category> Cetegories { set; get; }
+        public ICollection<Category> Categories { set; get; }
     }
 
     public class Image

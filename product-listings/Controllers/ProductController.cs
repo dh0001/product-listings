@@ -24,7 +24,7 @@ namespace store.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductModel.ToListAsync());
+            return View(await _context.Product.ToListAsync());
         }
 
         // GET: ProductModels/Details/5
@@ -35,7 +35,7 @@ namespace store.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.ProductModel
+            var productModel = await _context.Product
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (productModel == null)
             {
@@ -75,7 +75,7 @@ namespace store.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.ProductModel.SingleOrDefaultAsync(m => m.Id == id);
+            var productModel = await _context.Product.SingleOrDefaultAsync(m => m.Id == id);
             if (productModel == null)
             {
                 return NotFound();
@@ -126,7 +126,7 @@ namespace store.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.ProductModel
+            var productModel = await _context.Product
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (productModel == null)
             {
@@ -141,15 +141,15 @@ namespace store.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productModel = await _context.ProductModel.SingleOrDefaultAsync(m => m.Id == id);
-            _context.ProductModel.Remove(productModel);
+            var productModel = await _context.Product.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Product.Remove(productModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductModelExists(int id)
         {
-            return _context.ProductModel.Any(e => e.Id == id);
+            return _context.Product.Any(e => e.Id == id);
         }
     }
 }

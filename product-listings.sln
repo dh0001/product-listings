@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "store", "store\store.csproj", "{564CEF47-0F4E-4E5D-9523-1B2556B80AB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "product-listings", "product-listings\product-listings.csproj", "{564CEF47-0F4E-4E5D-9523-1B2556B80AB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,7 +10,7 @@ using System;
 
 namespace store.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(IdentityContext))]
     [Migration("20171119151455_add appuser")]
     partial class addappuser
     {

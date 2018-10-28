@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using store.Models;
 using System;
 
-namespace store.Migrations
+namespace productlistings.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20171011020552_Initial")]
-    partial class Initial
+    [Migration("20180825151537_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,19 +62,21 @@ namespace store.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Description");
+
                     b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductModel");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("store.Models.Category", b =>
                 {
                     b.HasOne("store.Models.ProductModel")
-                        .WithMany("Cetegories")
+                        .WithMany("Categories")
                         .HasForeignKey("ProductModelId");
                 });
 

@@ -3,24 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace store.Migrations
+namespace productlistings.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ProductModel",
+                name: "Product",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductModel", x => x.Id);
+                    table.PrimaryKey("PK_Product", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,9 +38,9 @@ namespace store.Migrations
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Category_ProductModel_ProductModelId",
+                        name: "FK_Category_Product_ProductModelId",
                         column: x => x.ProductModelId,
-                        principalTable: "ProductModel",
+                        principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -58,9 +59,9 @@ namespace store.Migrations
                 {
                     table.PrimaryKey("PK_Image", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Image_ProductModel_ProductModelId",
+                        name: "FK_Image_Product_ProductModelId",
                         column: x => x.ProductModelId,
-                        principalTable: "ProductModel",
+                        principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -85,7 +86,7 @@ namespace store.Migrations
                 name: "Image");
 
             migrationBuilder.DropTable(
-                name: "ProductModel");
+                name: "Product");
         }
     }
 }

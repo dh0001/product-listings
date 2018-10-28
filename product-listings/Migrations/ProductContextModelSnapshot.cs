@@ -8,13 +8,12 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using store.Models;
 using System;
 
-namespace store.Migrations
+namespace productlistings.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20171011021534_add desc")]
-    partial class adddesc
+    partial class ProductContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,13 +69,13 @@ namespace store.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductModel");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("store.Models.Category", b =>
                 {
                     b.HasOne("store.Models.ProductModel")
-                        .WithMany("Cetegories")
+                        .WithMany("Categories")
                         .HasForeignKey("ProductModelId");
                 });
 
